@@ -4,21 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Affiliate Leaderboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #000; /* Black background */
       color: #fff; /* White text */
-      font-family: 'Creepster', Arial, sans-serif; /* Apply the Creepster font */
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
     }
     h1 {
+      color: #e60000; /* Red color for headings */
       text-align: center;
-      font-size: 3em; /* Bigger text for the title */
-      background: linear-gradient(90deg, #ff0000 30%, #ffff00 70%); /* Sharper transition from red to yellow */
+      font-size: 3rem;
+      background: linear-gradient(to right, red, yellow);
       -webkit-background-clip: text;
-      color: transparent; /* This makes the text transparent so the gradient can show */
+      color: transparent;
+    }
+    h2 {
+      color: #fff; /* White text for subheadings */
+      text-align: center;
+      font-size: 2rem;
     }
     table {
       width: 100%;
@@ -27,16 +32,13 @@
     }
     th, td {
       border: 1px solid #fff;
-      padding: 15px; /* More padding for better spacing */
+      padding: 10px;
       text-align: center;
+      font-size: 1.5rem;
     }
     th {
       background-color: #e60000; /* Red background for table headers */
-      color: #000; /* Black text for table headers */
-      font-size: 2.2em; /* Larger font for headers */
-    }
-    td {
-      font-size: 1.5em; /* Larger text for table content */
+      color: #000; /* Black text */
     }
     tr:nth-child(even) {
       background-color: #1a1a1a;
@@ -48,13 +50,18 @@
       display: block;
       margin: 0 auto;
     }
-    video {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
+    .prizes {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .prizes h2 {
+      color: #e60000;
+      text-decoration: underline;
+      margin-bottom: 20px;
+    }
+    .prizes p {
+      font-size: 1.2rem;
+      margin: 10px 0;
     }
   </style>
 </head>
@@ -76,11 +83,29 @@
     </tbody>
   </table>
 
-  <!-- Video background -->
-  <video autoplay muted loop>
-    <source src="assets/Dragon-intermission-bg-blank.webm" type="video/webm">
-    Your browser does not support the video tag.
-  </video>
+  <div class="prizes">
+    <h2>Leaderboard Prizes</h2>
+    <h3>Daily</h3>
+    <p>1st Place: $5</p>
+    <p>2nd Place: $4</p>
+    <p>3rd Place: $3</p>
+    <p>4th Place: $2</p>
+    <p>5th Place: $1</p>
+
+    <h3>Weekly</h3>
+    <p>1st Place: $25</p>
+    <p>2nd Place: $20</p>
+    <p>3rd Place: $15</p>
+    <p>4th Place: $10</p>
+    <p>5th Place: $5</p>
+
+    <h3>Monthly</h3>
+    <p>1st Place: $100</p>
+    <p>2nd Place: $50</p>
+    <p>3rd Place: $20</p>
+    <p>4th Place: $10</p>
+    <p>5th Place: $5</p>
+  </div>
 
   <script>
     function fetchAffiliateStats() {
