@@ -1,6 +1,7 @@
 import express from 'express';
 import fetch from 'node-fetch';
 import cors from 'cors'; // Import cors package
+import path from 'path';
 
 const app = express();
 const port = 3000; // You can change this port number if needed
@@ -23,7 +24,13 @@ app.get('/api/leaderboard', async (req, res) => {
     });
 
     const data = await response.json();
-    res.json(data); // Send the data to the client
+
+    if (Array.isArray(data)) {
+      res.json(data); // Send the data to the client
+    } else {
+      console.error('Unexpected data format:', data);
+      res.status(500).json({ error: 'Unexpected data format' });
+    }
   } catch (error) {
     console.error('Error fetching affiliate stats:', error);
     res.status(500).json({ error: 'Error fetching affiliate stats' });
